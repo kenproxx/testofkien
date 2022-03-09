@@ -1,10 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>Title</title>
 </head>
 <body>
-$END$
+<script>
+    let scoreToan = parseInt(prompt("nhập điểm toán"));
+    let scoreLi = parseInt(prompt("nhập điểm lí"));
+    let scoreHoa = parseInt(prompt("nhập điểm hóa"));
+    let total = (scoreToan + scoreLi + scoreHoa) / 3
+    document.write("điểm toán là: " + scoreToan +"<br>")
+    document.write("điểm lí là: " + scoreLi + "<br>")
+    document.write("điểm hóa là: " + scoreHoa + "<br>")
+    document.write("trung bình 3 môn là: " + total)
+</script>
 </body>
 </html>

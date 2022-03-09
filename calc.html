@@ -1,10 +1,41 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
 </head>
 <body>
-$END$
+<form action="#">
+    <input type="text" id="one">
+    <input type="text" id="two"> <br>
+    <button onclick="cong()">+</button>
+    <button onclick="tru()">-</button>
+    <button onclick="nhan()">*</button>
+    <button onclick="chia()">/</button>
+    <p id="result"></p>
+</form>
+<script>
+    let one = document.getElementById('one')
+    let two = document.getElementById('two')
+    let result = 0;
+    let display = document.getElementById('result')
+function cong(){
+        result = +one.value + +two.value
+    display.innerHTML = result
+}
+    function tru(){
+        result = one.value - two.value
+        display.innerHTML = result
+    }function nhan(){
+        result = one.value * two.value
+        display.innerHTML = result
+    }function chia(){
+        result = one.value / two.value
+        display.innerHTML = result
+    }
+</script>
 </body>
 </html>

@@ -2,9 +2,21 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>$Title$</title>
+  <title>Title</title>
 </head>
 <body>
-$END$
+<script>
+  let login = prompt('tên đăng nhập')
+  if (login === "Admin"){
+    let passWord = prompt('mật khẩu')
+      if (passWord === "TheMaster"){
+        alert("Welcome")
+      } else if (passWord == null){
+        alert("canceld")
+      } else {alert("Wrong Password")}
+  } else if (login === null){
+    alert('canceld')
+  } else {alert("I dont know you")}
+</script>
 </body>
 </html>
