@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="#">
+    <img id="img"
+         src="https://salt.tikicdn.com/cache/400x400/ts/product/11/6e/33/2586579ec204e3c39ff27ad05f606346.jpg.webp"
+         alt="" width="300px">
+    <p>nhấn vào đây để di chuyển quả bóng sang phải</p>
+    <button id="click" onclick="moveRight()">Click me</button>
+</form>
+<script>
+
+let img;
+    window.onload = function init() {
+       img = document.getElementById('img');
+        img.style.position = 'relative';
+        img.style.left = '0px';
+    }
+
+    function moveRight() {
+        img.style.left = parseInt(img.style.left) + 10 + "px";
+    }
+
+</script>
+</body>
+</html>
