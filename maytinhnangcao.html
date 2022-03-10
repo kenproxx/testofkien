@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table>
+  <form action="#">
+    <tr>
+        <td colspan="4"><input type="text" id="result">
+        </td>
+    </tr>
+    <tr>
+        <td><button onclick="input('(')">(</button></td>
+      <td><button onclick="input(')')">)</button></td>
+      <td><button onclick="input('%')">%</button></td>
+
+      <td><button type="reset">AC</button></td>
+    </tr>
+    <tr>
+      <td><button onclick="input('7')">7</button></td>
+      <td><button onclick="input('8')">8</button></td>
+      <td><button onclick="input('9')">9</button></td>
+      <td><button onclick="input('/')">/</button></td>
+
+    </tr>
+    <tr>
+      <td><button onclick="input('4')">4</button></td>
+      <td><button onclick="input('5')">5</button></td>
+      <td><button onclick="input('6')">6</button></td>
+      <td><button onclick="input('*')">*</button></td>
+
+    </tr> <tr>
+    <td><button onclick="input('1')">1</button></td>
+    <td><button onclick="input('2')">2</button></td>
+    <td><button onclick="input('3')">3</button></td>
+    <td><button onclick="input('-')">-</button></td>
+
+  </tr><tr>
+    <td><button onclick="input('0')">0</button></td>
+    <td><button onclick="input('.')">.</button></td>
+    <td><button onclick="calc()">=</button></td>
+    <td><button onclick="input('+')">+</button></td>
+
+  </tr>
+  </form>
+
+</table>
+<script>
+  function input(id) {
+    document.getElementById('result').value += id;
+  }
+  function calc(){
+    document.getElementById('result').value = eval(document.getElementById('result').value)
+  }
+</script>
+</body>
+</html>
