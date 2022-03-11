@@ -1,12 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Title</title>
+    <meta charset="UTF-8">
+    <title>Title</title>
 </head>
 <body>
-<srcipt>
-
-</srcipt>
+<form action="#">
+<h1>tính lãi ngân hàng</h1>
+<input type="number" id="money">Nhập vào số tiền <br>
+<input type="text" id="month">Nhập vào số tháng <br>
+<input type="number" id="phanTram">Nhập vào số % <br>
+<button onclick="laiNH()">Calc</button>
+<p id="kq"></p>
+</form>
 </body>
+<script>
+    function laiNH() {
+        let money = parseInt(document.getElementById('money').value);
+        let month = document.getElementById('month').value
+        let phanTram = document.getElementById('phanTram').value;
+        let kq = document.getElementById('kq')
+        let i = 0
+        do {
+            money += (money * phanTram) / 100
+            ++i;
+        } while (i < month)
+        kq.innerHTML = money
+    }
+</script>
 </html>

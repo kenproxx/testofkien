@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Do you love me?</h1>
+<button id="yes" onclick="alert('Mình cũng yêu bạn!')">Yes</button>
+<button id="no" style="position: relative; left: 0px; top: 0px" onmouseover="troll()">No</button>
+<script>
+    let no = document.getElementById('no');
+    let rOng = window.innerWidth;
+    let cao = window.innerHeight
+
+    function troll() {
+        no.style.left = Math.random() * rOng + 'px'
+        no.style.top = Math.random() * cao + 'px'
+    }
+
+</script>
+</body>
+</html>
