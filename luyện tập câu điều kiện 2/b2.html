@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<input type="text" id="met" onchange="tinhMet()"> nhập vào mét <br> <br>
+<input type="text" id="feet" onchange="tinhFeet()"> nhập vào feet
+<script>
+let met = document.getElementById('met');
+let feet = document.getElementById('feet');
+let result = 0;
+function tinhMet(){
+  result = met.value * 3.2808
+  feet.value = result
+}
+function tinhFeet(){
+  result = feet.value / 3.2808
+  met.value = result
+}
+</script>
+</body>
+</html>

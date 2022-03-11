@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>giải phương trình bậc 2</h1>
+<input type="text" id="soa">Nhập a <br>
+<input type="text" id="sob">Nhập b <br>
+<input type="text" id="soc">Nhập c <br>
+<button onclick="phuongTrinh()">Calc</button>
+<p id="kq"></p>
+<script>
+
+    function phuongTrinh() {
+        let a = document.getElementById('soa').value;
+        let b = document.getElementById('sob').value;
+        let c = document.getElementById('soc').value;
+        let kq = document.getElementById('kq')
+        let x1 = 0;
+        let x2 = 0;
+        let n0 = (b * b) - (4 * a * c)
+        if (n0 > '0'){
+            x1 = (-b - Math.sqrt(n0)) / (2 * a)
+            x2 = (-b + Math.sqrt(n0)) / (2 * a)
+        kq.innerHTML = "phương trình có 2 nghiệm: " +
+            "x1 = " + x1 +
+            " x2 = " + x2
+        } else if (n0 === '0'){
+            x1 = -b / (2 * a)
+            kq.innerHTML = "phương trình có nghiệm kép là: " + x1
+        } else {
+            kq.innerHTML = "phương trình vô nghiệm"
+        }
+    }
+</script>
+</body>
+</html>
