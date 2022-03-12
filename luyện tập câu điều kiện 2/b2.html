@@ -5,19 +5,20 @@
   <title>Title</title>
 </head>
 <body>
-<input type="text" id="met" onchange="tinhMet()"> nhập vào mét <br> <br>
-<input type="text" id="feet" onchange="tinhFeet()"> nhập vào feet
+
+<input type="text" id="*" onkeydown="tinh(this.id)"> nhập vào mét <br> <br>
+<input type="text" id="/" onkeydown="tinh(this.id)"> nhập vào feet
 <script>
-let met = document.getElementById('met');
-let feet = document.getElementById('feet');
 let result = 0;
-function tinhMet(){
-  result = met.value * 3.2808
-  feet.value = result
-}
-function tinhFeet(){
-  result = feet.value / 3.2808
-  met.value = result
+function tinh(id){
+  let met = document.getElementById('*');
+  let fit = document.getElementById('/');
+  result = met.value + id + '' + 3.2808;/////
+  if (id === "/") {
+    met.value = eval(result);
+  } else {
+    fit.value = eval(result);
+  }
 }
 </script>
 </body>

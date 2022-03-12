@@ -5,13 +5,14 @@
     <title>Title</title>
 </head>
 <body>
-<input type="text" id="tempC" onchange="temp1()"> Nhập vào độ C <br> <br>
-<input type="text" id="tempF" onchange="temp2()"> Nhập vào độ F
+<input type="text" id="tempC" onkeydown="temp1()"> Nhập vào độ C <br> <br>
+<input type="text" id="tempF" onkeydown="temp2()"> Nhập vào độ F
 <script>
     let doC = document.getElementById('tempC');
     let doF = document.getElementById('tempF');
     let result = 0;
-// thay đổi thông số, tự động tính ra nhiệt độ
+
+    // thay đổi thông số, tự động tính ra nhiệt độ
     function temp1() {
         result = doC.value * 9 / 5 + 32
         doF.value = result;
