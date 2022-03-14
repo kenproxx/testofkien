@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let num = prompt('nhập số')
+    let dem = 0;
+    let i = 2
+    let check = 'đây là số nguyên tố'
+    for (let j = 3; j < num; j++) {
+        if (num % j == 0){
+            check = 'đây ko là số nguyên tố';
+            break;
+
+        }
+    }
+    alert(check)
+</script>
+</body>
+</html>

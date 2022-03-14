@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset=utf-8 />
+    <title>JS Bin</title>
+    <style>
+        body {padding-top:50px}
+    </style>
+</head>
+
+<body>
+
+</body>
+<script>
+    let arr = [1,2,3,4,5,6,7,8,9,10]
+    let first = 0;
+    let last = arr.length - 1;
+    while (first < last){
+        let b = arr[first];
+        arr[first] = arr[last];
+        arr[last] = b;
+        first++;
+        last--
+    }
+    console.log(arr)
+</script>
+</html>

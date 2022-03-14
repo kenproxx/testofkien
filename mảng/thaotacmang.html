@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="text" id="input">
+<button onclick="add()">ADD</button>
+<button onclick="display()" >Display</button>
+<button type="reset">AC</button>
+<p id="display"></p>
+<script>
+let arr = [];
+let x = 0;
+
+let input = document.getElementById('input')
+let display1 = document.getElementById('display')
+function add(){
+    arr[x] = input.value
+    x++
+}
+function display(){
+    let e = "<hr/>";
+
+    for (let i = 0; i < arr.length; i++) {
+        e += "Element " + i + " = " + arr[i] + "<br/>";
+
+    }
+display1.innerHTML = e
+}
+</script>
+</body>
+</html>

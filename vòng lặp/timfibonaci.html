@@ -10,21 +10,19 @@
   let a1 = 1;
   let a2 = 1;
   let a = 0
-  let num = 0
+  let num = prompt('số lượng')
 
-  for (let i = 3; i <= 20; i++){
+  for (let i = 3; i <= num; i++){
 
     a = a1 + a2;
    a1 = a2;
    a2 = a
-    if (a % 5 ==0){
-      console.log(a)
-break    }
-  }       console.log(num)
 
+      console.log( i + ' : ' + a)
 
-
-
+  }
 </script>
+
+
 </body>
 </html>

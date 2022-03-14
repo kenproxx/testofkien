@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Luyện tập 1</h1>
+<button onclick="b1()">b1</button>
+<button onclick="b2()">b2</button>
+<button onclick="b3()">b3</button>
+<button onclick="b4()">b4</button>
+<button onclick="b5()">b5</button>
+<button onclick="b6()">b6</button>
+<button onclick="b7()">b7</button>
+<button onclick="b8()">b8</button>
+<button onclick="b9()">b9</button>
+<p id="kq"></p>
+</body>
+<script>
+    let arr = [1,234,456,234,34,12,-1,-435,-346,23423,-34534,31,2,45,56464,7,345]
+    let kq = document.getElementById('kq')
+    let doDai = arr.length
+    function b1(){
+        let count = 0
+        for (let i = 0; i < doDai; i++) {
+            if (arr[i] > 10){
+                count++
+            }
+        }
+        kq.innerHTML = count
+    }
+    function b2(){
+        let max = arr[0]
+        for (let i = 1; i < doDai ; i++) {
+            if (max < arr[i]) {
+                max = arr[i]
+            }
+        }
+        kq.innerHTML = 'số lớn nhất là ' + max
+    }
+    function b3(){
+        let num = 0
+        for (let i = 0; i < doDai; i++) {
+            num += arr[i]
+
+        }
+        kq.innerHTML = 'trung bình của mảng là ' + (num/doDai)
+    }
+    function b4(){
+        arr = arr.reverse()
+        kq.innerHTML = 'mảng đảo ngược là ' + arr
+    }
+    function b5(){
+        let count = 0
+        for (let i = 0; i < doDai; i++) {
+            if (arr[i] < 0){
+                count++
+            }
+        }
+        kq.innerHTML = count
+    }
+    function b6(){
+
+    }
+    function b7(){
+
+    }
+    function b8(){
+        arr = arr.sort(function (a, b){
+            return b - a
+        })
+        kq.innerHTML = arr
+    }
+</script>
+</html>
