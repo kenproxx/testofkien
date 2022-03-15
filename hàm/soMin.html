@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let arr = [12,345,1,45,2,25,-1,-123,34,43,41,23,6,75,63,45];
+    let min = arr[0]
+    for (let i = 0; i < arr.length; i++) {
+        if (min > arr[i]){
+            min = arr[i]
+        }
+    }
+    console.log(min + ' ở vị trí ' + arr.indexOf(min))
+</script>
+</body>
+</html>
