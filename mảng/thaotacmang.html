@@ -8,7 +8,6 @@
 <input type="text" id="input">
 <button onclick="add()">ADD</button>
 <button onclick="display()" >Display</button>
-<button type="reset">AC</button>
 <p id="display"></p>
 <script>
 let arr = [];
@@ -22,13 +21,12 @@ function add(){
 }
 function display(){
     let e = "<hr/>";
-
     for (let i = 0; i < arr.length; i++) {
         e += "Element " + i + " = " + arr[i] + "<br/>";
-
     }
 display1.innerHTML = e
 }
+
 </script>
 </body>
 </html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>
+    <hr>
+    <h2>Add New Product</h2>
+    <input type="text" id="new">
+    <button onclick="addProduct()">ADD</button>
+    <button onclick="delProduct()">Delete</button>
+</div>
+
+<div>
+    <h2>Display All Product</h2>
+
+</div>
+<div id="display">
+    <button onclick="listProduct()">Hiện</button>
+</div>
+<script>
+    let product = []
+let display = document.getElementById('display')
+    let newProduct = document.getElementById('new')
+
+    function addProduct() {
+
+        product.push({name: newProduct.value})
+        console.log(product)
+    }
+
+    function listProduct() {
+        let a = ''
+        for (let i = 0; i < product.length; i++) {
+           product.forEach.toString(function (element){
+               console.log(typeof element)
+           })
+        }
+
+    }
+function delProduct(){
+        product.pop()
+    console.log(product)
+}
+
+
+</script>
+</body>
+</html>

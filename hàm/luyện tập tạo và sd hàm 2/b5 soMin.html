@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let a = prompt('a');
+    let b = prompt('b');
+    let c = prompt('c')
+    numberMin(a, b, c)
+
+    function numberMin(a, b, c) {
+        if (a > b) {
+            if (b > c) {
+                alert('số nhỏ nhất là ' + c)
+            } else {
+                alert('số nhỏ nhất là ' + b)
+            }
+        } else if (a > c) {
+            alert('số nhỏ nhất là ' + c)
+        } else {
+            alert('số nhỏ nhất là ' + a)
+        }
+        return;
+    }
+</script>
+</body>
+</html>

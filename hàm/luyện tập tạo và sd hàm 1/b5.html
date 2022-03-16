@@ -7,18 +7,20 @@
 <body>
 <script>
     let quest = prompt('bạn muốn tìm sao gì')
-    let starName = ["Polaris", "Aldebaran", 'Deneb', 'Vega', 'Altair', 'Dubhe','Regulus']
-    let Constellation = ['Ursa Minor','Tarurus', 'Cygnus', 'Lyra', 'Aquila','Ursa Major', 'Leo']
+    let starName = ["Polaris", "Aldebaran", 'Deneb', 'Vega', 'Altair', 'Dubhe', 'Regulus']
+    let Constellation = ['Ursa Minor', 'Tarurus', 'Cygnus', 'Lyra', 'Aquila', 'Ursa Major', 'Leo']
     let choMSao = ''
-    function search(star){
+
+    function search(star) {
         for (let i = 0; i < starName.length; i++) {
-            if (quest == starName[i]){
-                 choMSao = Constellation[i]
+            if (quest == starName[i]) {
+                choMSao = Constellation[i]
                 document.write(choMSao)
                 return;
             }
         }
     }
+
     search(quest)
 </script>
 </body>
