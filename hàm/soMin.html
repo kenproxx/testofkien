@@ -19,7 +19,7 @@
         for (let j = 0; j < array[i].length; j++) {
             if (array[i][j] % 2 === 0) {
                 count++
-                console.log('a) các phần tử chẵn là: ' + array[i][j])
+                document.write('a) các phần tử chẵn là: ' + array[i][j] + "<br>")
                 if (min > array[i][j]) {
                     min = array[i][j]
                 }
@@ -31,10 +31,10 @@
             }
         }
     }
-    console.log('b) số lượng phần tử chẵn là: ' + count)
-    console.log('c) tích các số lẻ là: ' + multi)
-    console.log('d) số max là: ' + max)
-    console.log('e) min của số chẵn là: ' + min)
+    document.write('b) số lượng phần tử chẵn là: ' + count + "<br>")
+    document.write('c) tích các số lẻ là: ' + multi + "<br>")
+    document.write('d) số max là: ' + max + "<br>")
+    document.write('e) min của số chẵn là: ' + min + "<br>")
 
     function findMax(arr) {
         let max = arr[0]
@@ -44,12 +44,12 @@
             }
 
         }
-        console.log('max của hàng ' + ' là ' + max)
+        document.write('max của hàng ' + ' là ' + max + "<br>")
     }
 
     function hihi(arr) {
         for (let j = 0; j < arr.length; j++) {
-            console.log('f) hàng thứ ' + (j+1))
+            document.write('f) hàng thứ ' + (j+1) + "<br>")
 
             findMax(arr[j])
         }
@@ -68,7 +68,7 @@
             }
 
         }
-        console.log('g) cột thứ ' + (i + 1) + ' số min là ' + minn)
+        document.write('g) cột thứ ' + (i + 1) + ' số min là ' + minn + "<br>")
 
     }
 
