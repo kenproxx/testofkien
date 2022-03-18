@@ -17,35 +17,58 @@
     <h2>Display All Product</h2>
 
 </div>
-<div id="display">
-    <button onclick="listProduct()">Hiện</button>
+<div>
+    <table id="displayArea" border="1"></table>
 </div>
+<div id="edit"></div>
 <script>
-    let product = []
-let display = document.getElementById('display')
+    let listProduct = ['1', '24', '25', '234', '24']
     let newProduct = document.getElementById('new')
+    displayAll()
 
+    //hàm hiển thị tất cả sp
+    function displayAll() {
+        let str = '<tr>\n' + '<td>Product Name </td>\n' +
+            '<td></td>\n' + '<td>' + listProduct.length + '</td>' +
+            '</tr>';
+        for (let i = 0; i < listProduct.length; i++) {
+            str += '<tr><td>' + listProduct[i] + '</td>' +
+                '<td><button onclick="showFormEdit(' + i + ')">Edit</button></td>' +
+                '<td><button onclick="delProduct(' + i + ')">Delete</button></td></tr>'
+        }
+        document.getElementById('displayArea').innerHTML = str
+    }
+
+    //hàm thêm sp
     function addProduct() {
 
-        product.push({name: newProduct.value})
-        console.log(product)
+        listProduct.push(newProduct.value)
+        newProduct.value = ''
+        displayAll()
     }
 
-    function listProduct() {
-        let a = ''
-        for (let i = 0; i < product.length; i++) {
-           product.forEach.toString(function (element){
-               console.log(typeof element)
-           })
-        }
+    function delProduct(index) {
+        listProduct.splice(index, 1)
+        displayAll()
+    }
+
+    function showFormEdit(index) {
+        let str = ''
+        str = '<input type="text" id="editProduct" value="' + listProduct[index] + '"> <button onclick="save('+index+')" >Save</button>';
+        document.getElementById('edit').innerHTML = str
+
+        // document.getElementById('editProduct').value = listProduct[index]
+
 
     }
-function delProduct(){
-        product.pop()
-    console.log(product)
-}
 
+    function save(index) {
+        listProduct[index] = document.getElementById('editProduct').value
+        document.getElementById('editProduct').value = ''
+        document.getElementById('edit').innerHTML = ''
+        displayAll()
 
+    }
 </script>
 </body>
 </html>

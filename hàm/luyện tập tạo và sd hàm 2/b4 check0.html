@@ -6,15 +6,17 @@
 </head>
 <body>
 <script>
-    let a = prompt('số')
-    checkNumber0(a);
+    checkNumber0();
 
-    function checkNumber0(num) {
-        if (num === 0) {
-            return alert('đúng')
-        } else {
-            prompt('sai')
-
+    function checkNumber0() {
+        let a;
+        while (a != 0){
+            a = prompt('số');
+            if (a == 0) {
+                alert('đúng');
+            } else {
+                alert('sai');
+            }
         }
     }
 

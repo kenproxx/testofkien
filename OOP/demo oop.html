@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function student(id, name, add){
+         this.id = id;
+         this.name = name;
+         this.add = add;
+        this.getInfor = function (){
+            return 'id = ' + this.id + ' name = ' + this.name + ' add = ' + this.add
+        }
+    }
+    let Student = new  student(1, 'kiên', 'thái nguyên')
+    // console.log(Student.getInfor())
+
+    let member = {
+        id: 1,
+        name: 'kiên',
+        age: 24,
+        getIn4: function thongtin(){
+            return 'id = ' + this.id + ' name = ' + this.name + ' tuổi = ' + this.age
+        }
+    }
+    console.log(member.id)
+</script>
+</body>
+</html>
