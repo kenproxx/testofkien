@@ -31,10 +31,15 @@
             }
         }
     }
+    document.write('<hr>')
     document.write('b) số lượng phần tử chẵn là: ' + count + "<br>")
+    document.write('<hr>')
     document.write('c) tích các số lẻ là: ' + multi + "<br>")
+    document.write('<hr>')
     document.write('d) số max là: ' + max + "<br>")
+    document.write('<hr>')
     document.write('e) min của số chẵn là: ' + min + "<br>")
+    document.write('<hr>')
 
     function findMax(arr) {
         let max = arr[0]
@@ -49,7 +54,7 @@
 
     function hihi(arr) {
         for (let j = 0; j < arr.length; j++) {
-            document.write('f) hàng thứ ' + (j+1) + "<br>")
+            document.write('f) hàng thứ ' + (j + 1) + "<br>")
 
             findMax(arr[j])
         }
@@ -57,7 +62,7 @@
     }
 
     hihi(array)
-
+    document.write('<hr>')
 
     let minn = 0
     for (let i = 0; i < array.length; i++) {
