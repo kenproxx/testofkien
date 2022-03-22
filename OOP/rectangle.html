@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<canvas id="rectange" width="1000" height="1000" style="border: 1px"></canvas>
+<script>
+    let Circle = function(radius) {
+
+        this.radius = radius;
+        this.getRadius = function() {
+            return radius;
+        }
+        this.getArea = function() {
+            return Math.PI * radius * radius;
+        }
+
+    };
+
+    let circle = new Circle(2);
+    let radius = circle.getRadius();
+    let area = circle.getArea()
+    // alert("radius: "+ radius + "; area: " + area);
+let Rectangle = function (a,b){
+        this.long = a;
+        this.wide = b
+        this.getAcreage = function (){
+            return a*b;
+        }
+        this.getPerimeter = function (){
+            return (a+b) * 2
+        }
+}
+let rectangle = new  Rectangle(100,200);
+    let acreage = rectangle.getAcreage();
+    let perimeter = rectangle.getPerimeter();
+    let canvas = document.getElementById('rectange');
+    let str = canvas.getContext('2d');
+    str.strokeRect(10,10, rectangle.wide, rectangle.long)
+    str.fillStyle = '#23da0b'
+    console.log('chu vi là ', perimeter, ' diện tích là ', acreage)
+
+
+</script>
+</body>
+</html>

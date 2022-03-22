@@ -26,7 +26,7 @@
     let newProduct = document.getElementById('new')
     displayAll()
 
-    //hàm hiển thị tất cả sp
+    //Function hiển thị tất cả sp
     function displayAll() {
         let str = '<tr>\n' + '<td>Product Name </td>\n' +
             '<td></td>\n' + '<td>' + listProduct.length + '</td>' +
@@ -39,7 +39,7 @@
         document.getElementById('displayArea').innerHTML = str
     }
 
-    //hàm thêm sp
+    //Function thêm sp
     function addProduct() {
 
         listProduct.push(newProduct.value)
@@ -69,6 +69,8 @@
         displayAll()
 
     }
+
+    displayAll()
 </script>
 </body>
 </html>

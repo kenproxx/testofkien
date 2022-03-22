@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function phuongTrinh(a, b) {
+
+        return -b / a
+    }
+
+    let arr = [1, 124, 334, 3, 34456, 7, 34, 53, 76, 4, 534, 5];
+let x = +prompt('nhap')
+    function search(a,b) {
+        for (let i = 0; i < a.length; i++) {
+            if (a[i] == b){
+                console.log(i)
+            }
+        }
+    }
+    search(arr,x)
+
+    function timA(a) {
+        for (let i = 0; i < arr.length; i++) {
+            if (a == arr[i]) {
+                let count = i
+                console.log(arr[i], count)
+            }
+        }
+    }
+
+    let input = 'yâasa,oieuofs'
+    let count = ''
+    let a = input.split('')
+
+    function vowel(vao) {
+        for (let i = 0; i < vao.length; i++) {
+            if (vao[i] == 'a' || vao[i] == 'o' || vao[i] == 'u' || vao[i] == 'e' || vao[i] == 'i') {
+                count++
+            }
+        }
+        // console.log(count)
+    }
+
+    vowel(a)
+
+
+   class Animal{
+    name;
+    weight;
+
+    setName(name){
+        this.name = name
+    }
+    setWeight(weight){
+        this.weight = weight
+    }
+    toString(){
+        return `tên là ${this.name} nặng khoảng ${this.weight}`
+    }
+    }
+    let Elephant  = new Animal()
+    Elephant.setWeight(500);
+Elephant.setName('con voi')
+    alert(Elephant.toString())
+</script>
+</body>
+</html>

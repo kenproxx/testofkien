@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="text" id="tempC" > nhập độ C
+<button onclick="Temperature()">OK</button>
+<div id="tempF"></div>
+<div id="tempK"></div>
+<script>
+    let Temperature = function(tempC){
+        this.tempF = function (){
+            return tempC * 1.8 + 32;
+        }
+        this.tempK = function (){
+            return tempC + 273
+        }
+    }
+    let tempeC = document.getElementById('tempC');
+    let tempeF = document.getElementById('tempF');
+    let tempeK = document.getElementById('tempK');
+    let doC = new Temperature(tempeC.value);
+    tempeF.innerHTML = doC.tempF();
+    tempeK.innerHTML = doC.tempK()
+
+</script>
+</body>
+</html>

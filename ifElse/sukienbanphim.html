@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<img id="img" style="position: absolute; left: 0; top: 0"
+src="../editGame/pikachu.png"   width="50"  alt="">
+<script>
+  let img = document.getElementById('img');
+  window.addEventListener("keydown", (evt) => {
+    if (evt.keyCode == 37){
+      img.style.left = parseInt(img.style.left) - 10 + 'px';
+    }
+    if (evt.keyCode == 38){
+      img.style.top = parseInt(img.style.top) - 10 + 'px';
+    }
+    if (evt.keyCode == 39){
+      img.style.left = parseInt(img.style.left) + 10 + 'px';
+    }
+    if (evt.keyCode == 40){
+      img.style.top = parseInt(img.style.top) + 10 + 'px';
+    }
+  })
+</script>
+</body>
+</html>

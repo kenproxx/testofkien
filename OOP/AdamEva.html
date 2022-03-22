@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    class Fruit {
+        weight;
+
+        setWeight(weight) {
+            this.weight = weight
+        }
+
+        getWeight() {
+            console.log('số miếng còn lại là:', this.weight)
+            return this.weight
+        }
+
+        status() {
+            if (this.weight > 0) {
+                return true
+            } else {
+                return false
+            }
+        }
+
+        decrease() {
+            if (this.status) {
+                console.log('táo đã vừa được ăn')
+                return this.weight -= 1
+            } else {
+                alert('đã hết')
+
+            }
+        }
+
+    }
+
+    class Human {
+        gender;
+        say;
+
+        checkApple(status) {
+            if (status) {
+                console.log('vẫn còn nè')
+            } else {
+                console.log('đã hết rồi')
+
+            }
+        }
+
+        eat(name, weight) {
+
+            console.log(name, 'đã ăn 1 miếng')
+            return weight--
+
+        }
+    }
+
+    let apple = new Fruit()
+    apple.setWeight(1)
+
+    let adam = new Human();
+    let eva = new Human()
+    adam.gender = 'male';
+    adam.say = 'helo mọi người, chào em - eva';
+    eva.gender = 'female';
+    eva.say = 'chào anh, em là eva'
+    console.log(adam.say)
+    console.log(eva.say)
+
+
+    for (let i = apple.weight; i >= 0;) {
+        if (i == 0) {
+            console.log('đã hết táo, hihi')
+            break
+        }
+        adam.checkApple(apple.getWeight())
+        adam.eat('adam', apple.decrease())
+        i--;
+        if (i == 0) {
+            console.log('đã hết táo, hihi')
+
+            break
+        }
+        eva.checkApple(apple.getWeight())
+        eva.eat('eva', apple.decrease())
+        i--;
+
+    }
+
+</script>
+</body>
+</html>
