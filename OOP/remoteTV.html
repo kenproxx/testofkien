@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    class Remote {
+        status = true
+        Volume = 9
+        Chanel = ''
+        setStatus(on){
+            if (on == 1){
+               return  this.status = true
+            } else if (on == 0){
+               return  this.status = false
+            }
+        }
+        setChanel(chanel){
+           return  this.Chanel = chanel
+        }
+        setVolume(volume){
+            if (this.Volume > 0 && this.Volume <= 100){
+                if (volume == 'len'){
+                    console.log('vừa tăng 1 âm lượng')
+                    return   this.Volume+=1
+
+
+                } else if (volume == 'xuong'){
+                    console.log('vừa giảm 1 âm lượng')
+                    return  this.Volume -=1
+
+                }
+
+            } else console.log('không tăng/ giảm được âm lượng nữa')
+        }
+
+
+
+    }
+    class TV {
+        status;
+        Volume;
+        chanel;
+        getStatus(remote){
+            if (remote){
+                console.log('TV đã bật')
+            } else {
+                console.log('TV đã tắt')
+            }
+        }
+        getVolume(volume){
+            this.Volume = volume
+            console.log('âm lượng hiện tại là', this.Volume)
+        }
+
+        getChanel(chanel){
+            this.chanel = chanel
+            console.log('kênh hiện tại là', this.chanel)
+        }
+    }
+    let remote = new Remote();
+    let tv = new TV();
+    tv.getStatus(remote.setStatus(1 ))
+    tv.getChanel(remote.setChanel(7))
+    tv.getVolume(remote.setVolume('len'))
+    tv.getVolume(remote.setVolume('len'))
+    tv.getVolume(remote.setVolume('len'))
+    tv.getVolume(remote.setVolume('len'))
+    tv.getVolume(remote.setVolume('xuong'))
+    tv.getVolume(remote.setVolume('xuong'))
+    tv.getVolume(remote.setVolume('xuong'))
+    tv.getChanel(remote.setChanel(3))
+    tv.getStatus(remote.setStatus(0))
+
+
+</script>
+</body>
+</html>

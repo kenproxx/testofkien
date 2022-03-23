@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Caro Ver 1.0</title>
+    <link rel="stylesheet" type="text/css" href="myStyle.css">
+</head>
+<body>
+<div class="center1">
+    <h1>CARO CHESS GAME</h1>
+    <label>Row number</label>
+    <input id="rTxt" type="text" style="width: 30px" value="6">
+    <label>Col number</label>
+    <input id="cTxt" type="text" style="width: 30px" value="6">
+    <label>Win number</label>
+    <input id="wTxt" type="text" style="width: 30px" value="4">
+    <button id="crtBtn" onclick="crtBoard()">Create Board</button>
+    <br><br>
+    <label>Select first mark</label>
+    <label><input name="sltPlayer" value="X" type="radio" checked>X</label>
+    <label><input name="sltPlayer" value="O" type="radio">O</label><br><br>
+    <button onclick="rsGame()">Reset Game</button>
+    <br><br>
+    <label id="msg"></label><br><br>
+    <div id="brd">
+        <table id="tbl" class="center2"></table>
+    </div>
+
+</div>
+
+</body>
+<script>
+
+    let rowNum; // Number of board game row
+    let colNum; // Number of board game column
+    let winNum; // Number of continued mark to win
+    let countX = 0; // Count number of 'X' cells
+    let countO = 0; // Count number of 'O' cells
+    let countTotal = 0; // Count number of both 'X' and 'O' cells
+    let board = []; // 2D array to store 'X' and 'O'
+    let endGame = false; // Game ended?
+    let sltPlayer = document.getElementsByName('sltPlayer');
+
+    // Create game board
+    function crtBoard() {
+        rowNum = parseInt(document.getElementById('rTxt').value);
+        colNum = parseInt(document.getElementById('cTxt').value);
+        winNum = parseInt(document.getElementById('wTxt').value);
+
+        let brd = document.getElementById('brd');
+        let tbl = document.getElementById('tbl');
+        tbl.innerHTML = "";
+
+        for (let i = 0; i < rowNum; i++) {
+            let tr = tbl.insertRow();
+            for (let j = 0; j < colNum; j++) {
+                let td = tr.insertCell();
+                td.style.border = '2px solid black';
+                td.style.width = '50px';
+                td.style.height = '50px';
+                td.style.textAlign = 'center';
+                td.style.fontSize = '30';
+                td.id = 'c' + i + j;
+                td.onclick = function () {
+                    playGame(td.id)
+                }
+            }
+        }
+
+        board = Array(rowNum).fill().map(entry => Array(colNum))
+        brd.appendChild(tbl);
+        endGame = false;
+    }
+
+    //Reset game
+    function rsGame() {
+        for (let i = 0; i < rowNum; i++) {
+            for (let j = 0; j < colNum; j++) {
+                let cID = "c" + i + j;
+                document.getElementById(cID).innerHTML = "";
+                document.getElementById(cID).style.backgroundColor = 'white';
+                board[i][j] = "";
+            }
+        }
+        document.getElementById('msg').innerHTML = "";
+        countX = 0;
+        countO = 0;
+        countTotal = 0;
+        endGame = false;
+    }
+
+    // Click one board cell to play
+    function playGame(cID) {
+        if (document.getElementById(cID).innerHTML == "") {
+            if (endGame == false) {
+                let r = parseInt(cID.substring(1, 2));
+                let c = parseInt(cID.substring(2, 3));
+
+                // Add X/O to clicked cell
+                // First time
+
+                if (countO == countX) {
+                    if (sltPlayer[0].checked) {
+                        document.getElementById(cID).innerHTML = sltPlayer[0].value;
+                        board[r][c] = sltPlayer[0].value;
+                        document.getElementById('msg').innerHTML = "Next player: " + sltPlayer[1].value;
+                        countX++;
+                    } else {
+                        document.getElementById(cID).innerHTML = sltPlayer[1].value;
+                        board[r][c] = sltPlayer[1].value;
+                        document.getElementById('msg').innerHTML = "Next player: " + sltPlayer[0].value;
+                        countO++;
+                    }
+                }
+                // Next time
+                else if (countX > countO) {
+                    document.getElementById(cID).innerHTML = sltPlayer[1].value;
+                    board[r][c] = sltPlayer[1].value;
+                    document.getElementById('msg').innerHTML = "Next player: " + sltPlayer[0].value;
+                    countO++;
+                } else if (countO > countX) {
+                    document.getElementById(cID).innerHTML = sltPlayer[0].value;
+                    board[r][c] = sltPlayer[0].value;
+                    document.getElementById('msg').innerHTML = "Next player: " + sltPlayer[1].value;
+                    countX++;
+                }
+                //Who is winner?
+                checkEndGame(r, c, winNum);
+                if (endGame == false) {
+                    autoPlay(r, c);
+                }
+            } else if (endGame == true) {
+                rsGame();
+            }
+        }
+    }
+
+    // Check cross line of X/O
+    function checkCrossLine(r, c, chkNum, crossType) {
+        let count = 0;
+        let check = [];
+        let rr;
+        let cc;
+        // Find by col
+        for (let i = -chkNum + 1; i < chkNum; i++) {
+
+            switch (crossType) {
+                case 1:
+                    // Check cross by row
+                    rr = r + i;
+                    cc = c + 0;
+                    break;
+                case 2:
+                    // Check cross by column
+                    rr = r + 0;
+                    cc = c + i;
+                    break;
+                case 3:
+                    // Check cross by diagonal line 1
+                    rr = r + i;
+                    cc = c + i;
+                    break;
+                case 4:
+                    // Check cross by diagonal line 2
+                    rr = r - i;
+                    cc = c + i;
+                    break;
+            }
+
+            if (rr >= 0 && rr < colNum && cc >= 0 && cc < colNum) {
+                if (board[rr][cc] == board[r][c]) {
+                    check[count] = new Array(rr, cc);
+                    count++;
+                } else {
+                    count = 0;
+                    check = [];
+                }
+            }
+            if (count == chkNum) {
+                if (chkNum == winNum) {
+                    alert('Winner: ' + board[r][c]);
+                    for (let k = 0; k < check.length; k++) {
+                        let cell = document.getElementById('c' + check[k][0] + check[k][1]);
+                        cell.style.backgroundColor = 'blue';
+                    }
+                    endGame = true;
+                    return check;
+                    break;
+                }
+            }
+        }
+        return check;
+    }
+
+    // Computer auto play
+    function autoPlay(r, c) {
+        let check = [];
+        let store = [];
+        let count = 0;
+        let countChk  = 0;
+        let step = [[-1, 0], [1, 0], [0, -1], [0, 1], [-1, -1], [1, 1], [-1, 1], [1, -1]]
+        let rr;
+        let cc;
+        let maxPoint=0;
+        let playCell = [];
+        let playCellID;
+
+        for (let i = 0; i < 4; i++) {
+            for (let j = winNum - 1; j > 1; j--) {
+                check = checkCrossLine(r, c, j, i + 1);
+                if (check.length > 0) {
+                    countChk++;
+                    for (let k = 0; k <= 1; k++) {
+                        rr = check[k * (j - 1)][0] + step[i * 2 + k][0];
+                        cc = check[k * (j - 1)][1] + step[i * 2 + k][1];
+                        if (rr >= 0 && rr < rowNum && cc >= 0 && cc < colNum) {
+                            if (board[rr][cc] == "") {
+                                store[count] = new Array(rr, cc, j);
+                                if (count == 0) {
+                                    maxPoint = j;
+                                } else {
+                                    if (j > maxPoint) {
+                                        maxPoint = j
+                                    }
+                                }
+                                count++;
+                            }
+                        }
+                    }
+                    break;
+                }
+            }
+        }
+        if (store.length == 0) {
+            if(countChk == 0) {
+                do {
+                    let a = Math.floor(Math.random() * 7);
+                    playCell[0] = r + step[a][0];
+                    playCell[1] = c + step[a][1];
+                } while (playCell[0] < 0 || playCell[0] > rowNum || playCell[1] < 0 || playCell[1] > colNum)
+            }else{
+                do {
+                    let a = Math.floor(Math.random() * 7);
+                    playCell[0] = r + step[a][0];
+                    playCell[1] = c + step[a][1];
+                } while (playCell[0] < 0 || playCell[0] > rowNum || playCell[1] < 0 || playCell[1] > colNum)
+            }
+        } else {
+            for (let i = 0; i < store.length; i++) {
+                if (store[i][2] == maxPoint) {
+                    playCell[0] = store[i][0];
+                    playCell[1] = store[i][1]
+                }
+            }
+        }
+        playCellID = "c" + playCell[0] + playCell[1];
+        while (document.getElementById(playCellID).innerHTML == "") {
+            if (countX > countO) {
+                document.getElementById(playCellID).innerHTML = sltPlayer[1].value;
+                board[playCell[0]][playCell[1]] = sltPlayer[1].value;
+                document.getElementById('msg').innerHTML = "Next player: " + sltPlayer[0].value;
+                countO++;
+            } else if (countO > countX) {
+                document.getElementById(playCellID).innerHTML = sltPlayer[0].value;
+                board[playCell[0]][playCell[1]] = sltPlayer[0].value;
+                document.getElementById('msg').innerHTML = "Next player: " + sltPlayer[1].value;
+                countX++;
+            }
+        }
+        checkEndGame(playCell[0], playCell[1], winNum);
+    }
+
+    // Check End Game
+    function checkEndGame(r, c, checkNum) {
+        let check;
+        check = checkCrossLine(r, c, checkNum, 1);
+        check = checkCrossLine(r, c, checkNum, 2);
+        check = checkCrossLine(r, c, checkNum, 3);
+        check = checkCrossLine(r, c, checkNum, 4);
+
+        // Is game draw?
+        countTotal++;
+        if (countTotal == (rowNum * colNum) && endGame == false) {
+            endGame = true;
+            alert('Game is DRAW!!!');
+        }
+    }
+
+</script>
+</html>

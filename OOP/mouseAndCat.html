@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    class Mouse {
+        name;
+        weight;
+        speed;
+        status;
+        constructor(name,weight,speed) {
+            this.name = name;
+            this.weight = weight;
+            this.speed = speed;
+            if (this.weight >= 1){
+                this.status = true
+            } else this.status = false
+        }
+        getStatus(){
+            if (this.weight > 0){
+               return  this.status = true
+            } else {
+
+                console.log('chuột đã hẹo')
+                return this.status = false}
+        }
+    }
+
+    class Cat {
+        name;
+        weight;
+        speed;
+        constructor(name,weight,speed) {
+            this.name = name;
+            this.weight = weight;
+            this.speed = speed;
+            if (this.weight > 0){
+                this.status = true
+            } else this.status = false
+        }
+        eat(mouse){
+            if (mouse.status){
+                if (this.speed < mouse.speed){
+                    console.log('chậm quá, ko bắt đc')
+                } else {
+                    console.log('đã cắn 1 miếng')
+                    this.weight++;
+                    this.speed--;
+                    mouse.weight--;
+                    mouse.speed++
+                    mouse.getStatus()
+
+                    console.log('cân nặng mèo là', this.weight, ' tốc độ là', this.speed)
+                    console.log('cân nặng chuột là', mouse.weight, ' tốc độ là', mouse.speed)
+            }
+
+            } else console.log('chuột đã hẹo')
+
+
+        }
+    }
+
+    let jerry = new Mouse('Jerry', 10, 20);
+    let tom = new Cat('Tom', 20, 25)
+    tom.eat(jerry)
+    tom.eat(jerry)
+    tom.eat(jerry)
+    tom.eat(jerry)
+    tom.eat(jerry)
+    tom.eat(jerry)
+    tom.eat(jerry)
+
+
+</script>
+</body>
+</html>
