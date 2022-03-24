@@ -54,7 +54,7 @@
 
     function showFormEdit(index) {
         let str = ''
-        str = '<input type="text" id="editProduct" value="' + listProduct[index] + '"> <button onclick="save('+index+')" >Save</button>';
+        str = '<input type="text" id="editProduct" value="' + listProduct[index] + '"> <button onclick="save(' + index + ')" >Save</button>';
         document.getElementById('edit').innerHTML = str
 
         // document.getElementById('editProduct').value = listProduct[index]
