@@ -20,12 +20,8 @@
     let x = +prompt('nhập số cần tìm')
 
     function search(a, b) {
-        for (let i in a) {
-            if (a[i] == b) {
-                console.log('Câu 2: vị trí của số cần tìm là:', i)
-            }
-        }
-
+        let index = a.indexOf(b)
+        console.log('Câu 2: vị trí của số cần tìm là:', index)
     }
 
     search(arr, x)
