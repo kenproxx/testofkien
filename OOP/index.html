@@ -9,40 +9,43 @@
 
     //Câu 1
     function equation(a, b) {
+        (a == 0 && b == 0) ? console.log('Câu 1: phương trình vô số nghiệm') :
+        (a == 0) ? console.log('Câu 1: phương trình vô nghiệm') : console.log('Câu 1: nghiệm pt bậc nhất là:', -b / a)
+        }
 
-        return -b / a
-    }
+   equation(0,5)
 
-    console.log('Câu 1: nghiệm pt bậc nhất là:', equation(5, 8))
 
     //Câu 2
     let arr = [1, 124, 334, 3, 34456, 7, 34, 53, 76, 4, 534, 5];
-    let x = +prompt('nhập số cần tìm')
+    let num = +prompt('nhập số cần tìm')
 
     function search(a, b) {
         let index = a.indexOf(b)
         console.log('Câu 2: vị trí của số cần tìm là:', index)
     }
 
-    search(arr, x)
+    search(arr, num)
 
 
     //Câu 3
 
 
-    let input = 'ak,dsjahfskx cno'
+    let input = 'ak,dsjahfsAOUkx cAno'
+    let input2 = input.toLowerCase()
+    let count = 0
 
     function vowel(inp) {
-        let count = 0
         for (let i in inp) {
             if (inp[i] == 'a' || inp[i] == 'o' || inp[i] == 'u' || inp[i] == 'e' || inp[i] == 'i') {
                 count++
             }
         }
-        console.log('Câu 3: số kí tự nguyên âm trong chuỗi là:', count)
     }
 
     vowel(input)
+    vowel(input2)
+    console.log('Câu 3: số kí tự nguyên âm trong chuỗi là:', count)
 
 
     //Câu 4
