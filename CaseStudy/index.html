@@ -9,10 +9,11 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
 <div id="gameFrame" onclick="myGunSound.play()">
     <div id="healthBar"></div>
-    <div id="score" ></div>
-    <div class="enemy" id="enemy1" onclick="iShoot(this)"></div>
+        <div id="enemy"></div>
+        <div class="enemy" id="enemy1" onclick="iShoot(this)"></div>
         <div class="enemy" id="enemy2" onclick="iShoot(this)"></div>
         <div class="enemy" id="enemy3" onclick="iShoot(this)"></div>
         <div class="enemy" id="enemy4" onclick="iShoot(this)"></div>
@@ -20,7 +21,6 @@
          <button onclick="newGame()">NEW GAME</button>
 
 </div>
-
 </body>
 <script src="script.js"></script>
 </html>

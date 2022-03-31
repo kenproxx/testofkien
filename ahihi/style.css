@@ -1,0 +1,6 @@
+h1:hover{
+color: red;
+}
+h1:active{
+    color: green;
+}

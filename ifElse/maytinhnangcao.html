@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+  <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -51,9 +51,11 @@
   function input(id) {
     document.getElementById('result').value += id;
   }
-  function calc(){
-    document.getElementById('result').value = eval(document.getElementById('result').value)
-  }
+  // function calc(){
+  //   document.getElementById('result').value = eval(document.getElementById('result').value)
+  // }
+
+  let calc = () => document.getElementById('result').value = eval(document.getElementById('result').value)
 </script>
 </body>
 </html>

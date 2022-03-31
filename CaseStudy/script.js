@@ -4,28 +4,44 @@ let music = new Audio('audio/music.mp3')
 music.volume = .3
 music.loop = true
 
+let speedShoot = 1000;
+let speed = 3000;
+
+let score = 0;
+let scoreArea = document.getElementById('score')
+scoreArea.innerHTML = 0
+
+function updateSpeed(speed1, speedShoot1) {
+    speed = speed1;
+    speedShoot = speedShoot1;
+}
+
+
+
 
 function iShoot(enemy) {
     enemy.classList.add('dead')
-
-
     if (!livingEnemies().length) {
         setTimeout(function (){
             alert('WIN');
             window.location.reload()
+            speedShoot -= 900;
+            speed -= 1000
         },1000)
     }
 }
+
 
 function enemyAttacksMe(enemy) {
     enemy.classList.add('showing')
     setTimeout(() => {
         enemyShootsMe(enemy)
-    }, 1000)
+    }, speedShoot)
     setTimeout(() => {
         enemy.classList.remove('showing')
-    }, 3000);
+    }, speed);
 }
+
 
 function enemyShootsMe(enemy) {
     if (!enemy.classList.contains('dead')) {
@@ -74,9 +90,4 @@ function updateHealthPoints(points) {
 function newGame() {
     randomEnemyAttacks();
     document.querySelector('button').style.display = 'none';
-    music.play()
 }
-
-
-
-

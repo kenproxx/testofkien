@@ -6,65 +6,89 @@
 </head>
 <body>
 <script>
-    function phuongTrinh(a, b) {
+
+    //Câu 1
+    function equation(a, b) {
 
         return -b / a
     }
 
+    console.log('Câu 1: nghiệm pt bậc nhất là:', equation(5, 8))
+
+    //Câu 2
     let arr = [1, 124, 334, 3, 34456, 7, 34, 53, 76, 4, 534, 5];
-let x = +prompt('nhap')
-    function search(a,b) {
-        for (let i = 0; i < a.length; i++) {
-            if (a[i] == b){
-                console.log(i)
+    let x = +prompt('nhập số cần tìm')
+
+    function search(a, b) {
+        for (let i in a) {
+            if (a[i] == b) {
+                console.log('Câu 2: vị trí của số cần tìm là:', i)
             }
         }
-    }
-    search(arr,x)
 
-    function timA(a) {
-        for (let i = 0; i < arr.length; i++) {
-            if (a == arr[i]) {
-                let count = i
-                console.log(arr[i], count)
-            }
-        }
     }
 
-    let input = 'yâasa,oieuofs'
-    let count = ''
-    let a = input.split('')
+    search(arr, x)
 
-    function vowel(vao) {
-        for (let i = 0; i < vao.length; i++) {
-            if (vao[i] == 'a' || vao[i] == 'o' || vao[i] == 'u' || vao[i] == 'e' || vao[i] == 'i') {
+
+    //Câu 3
+
+
+    let input = 'ak,dsjahfskx cno'
+
+    function vowel(inp) {
+        let count = 0
+        for (let i in inp) {
+            if (inp[i] == 'a' || inp[i] == 'o' || inp[i] == 'u' || inp[i] == 'e' || inp[i] == 'i') {
                 count++
             }
         }
-        // console.log(count)
+        console.log('Câu 3: số kí tự nguyên âm trong chuỗi là:', count)
     }
 
-    vowel(a)
+    vowel(input)
 
 
-   class Animal{
-    name;
-    weight;
+    //Câu 4
 
-    setName(name){
-        this.name = name
+    class Animal {
+        name;
+        weight;
+
+        constructor(name, weight) {
+            this.name = name;
+            this.weight = weight
+        }
+
+        getName() {
+            return this.name;
+        }
+
+        getWeight() {
+            return this.weight;
+        }
+
+        setName(name) {
+            this.name = name
+        }
+
+        setWeight(weight) {
+            this.weight = weight
+        }
+
+        toString() {
+            return `tên là ${this.name} cân nặng là ${this.weight}`
+        }
     }
-    setWeight(weight){
-        this.weight = weight
-    }
-    toString(){
-        return `tên là ${this.name} nặng khoảng ${this.weight}`
-    }
-    }
-    let Elephant  = new Animal()
-    Elephant.setWeight(500);
-Elephant.setName('con voi')
-    alert(Elephant.toString())
+
+
+    let objAnimal1 = new Animal('Elephant', 45.6);
+    console.log('câu 4:', objAnimal1.toString());
+
+    let objAnimal2 = new Animal('con chuột', 10);
+    objAnimal2.setName('Mouse');
+
+
 </script>
 </body>
 </html>

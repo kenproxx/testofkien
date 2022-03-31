@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="Player.js"></script>
+</head>
+<style>
+    body {
+        min-height: 100%;
+        position: fixed;
+        overflow-y: hidden;
+        overflow-x: hidden;
+    }
+
+
+</style>
+<body>
+<img onclick="window.location.reload()" id="gameOver" >
+<canvas id="myCanvas" width="600" height="1000" style="border: 2px solid black"></canvas>
+
+</body>
+</html>
+<script>
+
+    let canvas = document.getElementById('myCanvas');
+    let ctx = canvas.getContext('2d');
+    const image4 = new Image()
+    image4.onload = drawImage
+    const image5 = new Image()
+    image5.onload = drawImage
+    const image = new Image();
+    image.onload = drawImage
+    const image2 = new Image();
+    image2.onload = drawImage
+    const image3 = new Image();
+    image3.onload = drawImage
+    let car1 = new Car(image, 267.5, 800, 65, 100, 'image/car1.png')
+    let car = []
+    let background = []
+    background[0] = new Background(image3, 0, -200, 600, 1200, 'image/background-1.png')
+    image2.src = 'image/car.png';
+    image3.src = 'image/DuongDua.png';
+    let buttonStart = new Background(image4, 200, 350, 200, 100, 'image/SB.png')
+    let arrowMove = new Background(image5, 200, 500, 200, 100, 'image/arrow.png')
+    let gameStart = true;
+    canvas.addEventListener('click', function () {
+        gameStart = true
+        audio.play()
+    })
+
+
+    image.src = car1.src
+
+    function drawImage() {
+        background[0].drawImage(ctx)
+        for (let i = 0; i < background.length; i++) {
+            background[i].moveDownB();
+            background[i].drawImage(ctx);
+        }
+        car1.drawImage(ctx)
+        if (!gameStart) {
+            buttonStart.drawImage(ctx)
+            arrowMove.drawImage(ctx)
+            return;
+        }
+        for (let i = 0; i < car.length; i++) {
+            car[i].moveDown();
+            car[i].drawImage(ctx);
+        }
+    }
+
+    function moveCar(evt) {
+        switch (evt.keyCode) {
+            case 37:
+                car1.dir = "left";
+                break;
+            case 39:
+                car1.dir = "right";
+                break;
+            case 38:
+                car1.dir = "up";
+                break;
+            case 40:
+                car1.dir = "down";
+                break;
+            default:
+                car1.dir = "";
+        }
+    }
+
+    function checkVaCham() {
+        for (let i = 0; i < car.length; i++) {
+            if (checkVatCan(car1, car[i])) {
+                audio.pause()
+                audio2.play()
+                showGameOver();
+            }
+        }
+    }
+
+    function checkVatCan(xe, xe2) {
+        let L1 = xe.x
+        let R1 = xe.x + xe.width
+        let T1 = xe.y
+        let B1 = xe.y + xe.height
+
+        let L2 = xe2.x
+        let R2 = xe2.x + xe2.width
+        let T2 = xe2.y
+        let B2 = xe2.y + xe2.height
+
+        if (L1 > R2 || R1 < L2 || T1 > B2 || B1 < T2) {
+            return false
+        }
+        return true
+    }
+
+    function clearCanvas() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height)
+    }
+
+    function addCar() {
+        if (gameStart) {
+            car.push(new Car(image2, (Math.random() * 300) + 100, Math.random() * 100, 65, 100, 'image/car.png'));
+        }
+    }
+
+    function addBackgr() {
+        background.push(new Background(image3, 0, -1200, 600, 1200, 'image/background-1.png'));
+    }
+
+    setInterval(addBackgr, 500)
+    let ỉnterval = setInterval(addCar,700)
+    addEventListener("keydown", moveCar)
+
+    function main() {
+        clearCanvas();
+        car1.control();
+        drawImage()
+        checkVaCham();
+        requestAnimationFrame(main);
+    }
+
+    main();
+
+    function showGameOver() {
+        document.getElementById('gameOver').style.display = "block";
+    }
+</script>
